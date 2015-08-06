@@ -32,6 +32,12 @@ public class Compras extends Controller {
     	render(productos);
     }
     
+    public static void prods(Long id) {
+    	System.out.println("se llamo");
+    	Producto p = Producto.findById(id);    
+        render(p);
+    }
+    
     
     public static void repo(){
 		Usuario usu = Usuario.find("byEmail", Security.connected()).first();
