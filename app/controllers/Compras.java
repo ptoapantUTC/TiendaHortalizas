@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Compra;
 import models.Estadistica;
+import models.Notaventa;
 import models.Producto;
 import models.Promocion;
 import models.Usuario;
@@ -27,6 +28,8 @@ public class Compras extends Controller {
     public static void index() {
         render();
     }
+    
+    
     
     public static void listaPromociones(){
     	List<Promocion> promociones=Promocion.findAll();
@@ -74,12 +77,6 @@ public class Compras extends Controller {
 		redirect("/compras/listaProductos#tit");
 	}
     
-    
-    public static void cancelar(long id){
-    	Producto compraCancelar= Producto.findById(id);
-    	compraCancelar.delete();
-    	
-    }
     public static void repo(){
 		Usuario usu = Usuario.find("byEmail", Security.connected()).first();
 		List<Compra> com= Compra.find("cliente_id=?",usu.id).fetch();
@@ -96,7 +93,7 @@ public class Compras extends Controller {
     	render(usuarios,estadisticas);
     }
     
-    public static void estadisticasCliente(Long id){
+    public static void estadisticasCliente(long id){
     	Usuario usuario=Usuario.findById(id);
     	List<Estadistica> estadisticas=Estadistica.find("byUsuario_id",usuario.id).fetch();
     	List<Compra> com= Compra.find("cliente_id=?",usuario.id).fetch();
@@ -105,5 +102,13 @@ public class Compras extends Controller {
     	render(estadisticas,usuario,com);  
     }
 
+    
+    public static void notaventa( long id){
+    	
+    	Usuario usua=Usuario.findById(id);
+    	List<Notaventa> notaVenta=Notaventa.findAll();
+    	List<Compra> com= Compra.findAll();
+    	render (usua, notaVenta, com);
+    }
 
 }
