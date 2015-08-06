@@ -1,0 +1,44 @@
+#{extends 'main.html' /}
+<html> 
+<meta charset="utf-8"> 
+
+</html>
+
+
+<div id="login">
+	
+	<h1>&{'secure.title'}</h1>
+		
+	#{form @authenticate()}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+	
+		<p id="username-field">
+			<label for="username">Email Usuario </label>
+			<input type="text" name="username" id="username" value="${flash.username}" />
+		</p>
+		<p id="password-field">
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" id="password" value="" />
+		</p>
+		<p id="remember-field">
+			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+			<label for="remember">Recordar</label>
+		</p>
+		<p id="signin-field">
+			<input type="submit" id="signin" value=Ingresar />
+		</p>
+		<p> 
+		<a href="/Security/registro"class="btn btn-success">Registrar</a>
+		</p>
+	#{/form}
+</div>

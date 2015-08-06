@@ -1,0 +1,51 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+
+# Default CRUD messages
+# ~~~~~~
+
+crud.title=Administracion
+crud.index=Bienvenido a
+crud.blank=Nuevo
+crud.index.title=Seleccione el producto 
+crud.index.objectType=Tipo de producto
+crud.index.action=
+crud.index.add=Agregar
+crud.add=Agregar &{%s}
+crud.list.title=&{%s}
+crud.list.size=%d &{%s}
+crud.list.totalSize=%d total
+crud.pagination.previous=« Previous
+crud.pagination.next=Next »
+crud.pagination.last=Last »»
+crud.pagination.first=«« First
+crud.show.title=Editar &{%s}
+crud.save=Guardar
+crud.saveAndContinue=Guardar y continuar editando
+crud.cancel=Cancelar
+crud.hasErrors=Por favor corrija los errores
+crud.blank.title=Agregar &{%s}
+crud.saveAndAddAnother=Guardar y crear nuevo
+crud.delete=Eliminar &{%s}
+crud.created=El &{%s} se ha creado
+crud.saved=El &{%s} se ha guardado
+crud.deleted=El &{%s} se ha eliminado
+crud.delete.error=No se puede eliminar
+crud.search=Buscar
+crud.none=(None)
+crud.selectValue=(Please select a value)
+
+crud.help.required=Required.
+crud.help.minlength=Min length is %d.
+crud.help.maxlength=Max length is %d.
+crud.help.email=Valid email address.
+crud.help.dateformat=&{%s} format.
+crud.help.numeric=Numeric.
+crud.help.min=Must be greater than %d.
+crud.help.future=In the future.
+crud.help.past=In the past.
+crud.help.after=After %s.
+crud.help.before=Before %s.
+crud.help.range=Between %d and %d

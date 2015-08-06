@@ -1,0 +1,41 @@
+#{extends 'main.html' /} #{set title:'repo.html' /} #{extends
+'main.html' /} #{set title:'repo.html' /}
+
+<div class="container">
+	<div class="row">
+		<div class="well btn btn-primary btn-block" align="center">
+			<h1>Mis compras</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="well">
+			#{if com}
+			<table class="table ">
+				<tr>
+					<th>Fecha</th>
+					<th>Producto</th>
+					<th>Cantidad</th>
+					<th>Precio U</th>
+					<th>Precio T</th>
+				</tr>
+				#{list com, as:'r'}
+				<tr>
+					<td>${r.fecha}</td>
+					<td>${r.producto.nombre}</td>
+					<td>${r.cantidad}</td>
+					<td>${r.producto.precio}</td>
+					<td>%{ total =r.cantidad*r.producto.precio; out.print(total); }%</td>
+				</tr>
+				#{/list}
+			</table>
+			#{/if} #{else}
+			<h1>
+				lo sentimo no tiene compras realizadas para comprar haga clic <a
+					href="/compras">aqui</a>
+			</h1>
+			#{/else}
+		</div>
+	</div>
+	<a href="/Compras/notaventa"  class=" btn btn-info" >  Generar Nota Venta</a>
+
+</div>
