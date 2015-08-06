@@ -4,7 +4,7 @@ import java.util.List;
 
 import models.Compra;
 import models.Estadistica;
-import models.Notaventa;
+
 import models.Producto;
 import models.Promocion;
 import models.Usuario;

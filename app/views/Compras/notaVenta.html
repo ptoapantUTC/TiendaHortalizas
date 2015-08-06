@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nota de venta</title>
+</head>
+<body>
+
+#{if com}
+<table border="5" >
+	
+				
+				<tr>
+				<th class="text-center" colspan="4" bgcolor="pink"><h3>NOTA DE VENTA</h3></th>
+				</tr>
+				<tr>
+				<th class="text-center" colspan="4" bgcolor="#E3DEDE"><h3>PREASOCIACIÓN SAN BUENAVENTURA</h3></th>
+				</tr>
+				
+				<tr>
+					<th colspan="2">NOMBRE</th>
+					<th colspan="2"><input type="text" pattern="[a-zA-ZáÁ]"  title="Debe ingresar solo caracteres"
+					 name="nombre" class="form-control" required placeholder="Ingrese su  nombre" > </th>
+				</tr>
+				<tr> 
+				 <th colspan="2">APELLIDO</th>
+				 <th colspan="2"><input type="text" pattern="[a-zA-ZáÁ]"  title="Debe ingresar solo caracteres" 
+				 name="nombre" class="form-control" required placeholder="Ingrese su  apellido" > </th>
+				</tr>
+				<tr> 
+					<th colspan="2">DIRECCION</th>
+					<th colspan="2"><input type="text" pattern="[a-zA-ZáÁ]"  title="Debe ingresar solo caracteres" 
+					name="nombre" class="form-control" required placeholder="Ingrese su  direccion" > </th>
+				</tr>
+				<tr> 
+					<th colspan="2">FECHA</th>
+					<th colspan="2"><input type="text" pattern="[a-zA-ZáÁ]"  title="Debe ingresar solo caracteres" 
+					name="nombre" class="form-control" required placeholder="Ingrese la fecha" > </th>
+				</tr>
+				
+							
+				<tr>
+				
+					<th>Cantidad</th>
+					<th>Producto</th>
+					<th>Precio U</th>
+					<th>Precio T</th>
+				</tr>
+				#{list com, as:'r'}
+				<tr>
+					<td>${r.cantidad}</td>
+					<td>${r.producto.nombre}</td>
+					<td>${r.producto.precio}</td>
+					<td>%{ total =r.cantidad*r.producto.precio; out.print(total); }%</td>
+				</tr>
+				#{/list}
+				
+				#{list com, as:'r'}
+				<tr>
+					<th colspan="2" rowspan="3" bgcolor="#E3DEDE"> GRACIAS POR SU COMPRA</th>
+					<th> TOTAL</th>
+					<th>%{Total =total+r.cantidad+r.producto.precio; out.print(Total); }%</th>
+				
+				</tr>
+				#{/list}
+			</table>
+			#{/if}
+			<br>
+			<br>
+		
+			
+			<input type="button"  value="IMPRIMIR"  class="btn btn-danger" 
+			name="" onclick='javascript:window.print();'>
+</body>
+</html>
