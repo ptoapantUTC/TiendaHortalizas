@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<script type="text/javascript">
+<script>
 function ValidaSoloNumeros() {
 	 if ((event.keyCode < 48) || (event.keyCode > 57)) 
 	  event.returnValue = false;
@@ -14,9 +14,7 @@ function ValidaSoloLetras() {
 	  event.returnValue = false;
 	
 	}
-
 </script>
-
  </head>
 
 <div class="container">
@@ -40,42 +38,44 @@ function ValidaSoloLetras() {
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label for="firstname" class="col-md-3 control-label">Nombre:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre"    value="${flash.nombre}" required>
+		                                        <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre" onkeypress="ValidaSoloLetras();"  value="${flash.nombre}" required>
 		                                    </div>
 		                                </div>
 		                                <br>
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label for="lastname" class="col-md-3 control-label">Apellido:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="text" class="form-control" name="apellido" placeholder="Ingrese su apellido"   value="${flash.apellido}" required>
+		                                        <input type="text" class="form-control" name="apellido" placeholder="Ingrese su apellido" onkeypress="ValidaSoloLetras();"  value="${flash.apellido}" required>
 		                                    </div>
 		                                </div>
 		                                <br>
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label for="firstname" class="col-md-3 control-label">Cédula:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="numer" class="form-control"   name="cedula" placeholder="Ingrese su cedula" >
+		                                        <input type="numer" class="form-control"  maxlength="10" name="cedula" placeholder="Ingrese su cedula" onkeypress="ValidaSoloNumeros();"  value="${flash.cedula}" 
+		                                        equired="solo numeros" minlength="10">
 		                                    </div>
 		                                </div>
 		                                <br>
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label for="firstname" class="col-md-3 control-label">Dirección:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="text" class="form-control" name="direccion" placeholder="Ingrese su dirección"   value="${flash.cedula}" required>
+		                                        <input type="text" class="form-control" name="direccion" placeholder="Ingrese su dirección" onkeypress="  "  value="${flash.cedula}" required>
 		                                    </div>
 		                                </div>
 		                                <br>
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label for="firstname" class="col-md-3 control-label">Teléfono:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="numer"  class="form-control" name="telefono" placeholder="Ingrese su telefono"  value="${flash.cedula}" >
+		                                        <input type="numer" maxlength="10" class="form-control" name="telefono" placeholder="Ingrese su telefono" onkeypress="ValidaSoloNumeros();"  value="${flash.cedula}" 
+		                                        required="solo numeros" minlength="10">
 		                                    </div>
 		                                </div>
 		                                <br>
 		                                  <div class="form-group" style="margin-bottom: 25px">
 		                                	 <label for="email" class="col-md-3 control-label">Email:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="email" id="email" class="form-control" name="email" placeholder="Ingrese su email" value="${flash.email}" ><br>
+		                                        <input type="email" id="email" class="form-control" name="email" placeholder="Ingrese su email" value="${flash.email}" required="falta @"><br>
 		                                          #{if flash.existente}
 												<p class="error" style="color: red; font-weight: bold;">
 													&{flash.existente}
@@ -87,8 +87,8 @@ function ValidaSoloLetras() {
 		                                <div class="form-group" style="margin-bottom: 25px">
 		                                    <label class="col-md-3 control-label">Password:</label>
 		                                    <div class="col-md-9">
-		                                        <input type="password" id="password" class="form-control" name="password" placeholder="Ingrese su clave" value="${flash.emailRepetido}"
-		                                        >
+		                                        <input type="password" id="password" maxlength="6" class="form-control" name="password" placeholder="Ingrese su clave" value="${flash.emailRepetido}"
+		                                        minlength="6" required>
 		                                    </div>
 		                                </div>
 		                                <br>
@@ -124,4 +124,4 @@ function ValidaSoloLetras() {
 		         </div> 
 </div>	         
 		         
-		         
+		
