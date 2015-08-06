@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Compra;
 import models.Estadistica;
+import models.Producto;
 import models.Usuario;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -24,6 +25,11 @@ public class Compras extends Controller {
 
     public static void index() {
         render();
+    }
+    
+    public static void listaProductos(){
+    	List<Producto> productos=Producto.findAll();
+    	render(productos);
     }
     
     
