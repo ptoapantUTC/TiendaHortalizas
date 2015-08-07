@@ -54,7 +54,28 @@ public class Compras extends Controller {
         render(p);
     }
     
+    
+    public static void comprar(Long id, int cantidad) {
+    	Usuario usu = Usuario.find("byEmail", Security.connected()).first();
+		Producto pro = Producto.findById(id);
+		if (cantidad <= pro.stock) {
+			pro.decreaseStock(cantidad);			
+			Compra com = new Compra(usu, pro, cantidad);
+			Estadistica e=new Estadistica();
+			e.compra=com;
+			e.usuario=usu;
+			
+			
+			com.save();
+			e.save();
+			
+			flash.success("Compra Exitosa");
+		} else {			
+				flash.error("Lo sentimos ha excedido el stock verifique que la cantidad sea correcta ");			
+		}
 
+		redirect("/compras/listaProductos#tit");
+	}
     
     public static void repo(){
 		Usuario usu = Usuario.find("byEmail", Security.connected()).first();
@@ -82,5 +103,12 @@ public class Compras extends Controller {
     }
 
     
+    public static void notaventa( long id){
+    	
+    	Usuario usua=Usuario.findById(id);
+    	List<Notaventa> notaVenta=Notaventa.findAll();
+    	List<Compra> com= Compra.findAll();
+    	render (usua, notaVenta, com);
+    }
 
 }

@@ -1,4 +1,3 @@
-
 package controllers;
 
 import models.Producto;
@@ -27,4 +26,3 @@ public class Productos extends CRUD {
 
 
 }
-
