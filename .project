@@ -26,5 +26,15 @@
 			<type>2</type>
 			<location>C:/play/modules/secure/app</location>
 		</link>
+		<link>
+			<name>conf/crud</name>
+			<type>2</type>
+			<location>C:/play/modules/crud/conf</location>
+		</link>
+		<link>
+			<name>conf/secure</name>
+			<type>2</type>
+			<location>C:/play/modules/secure/conf</location>
+		</link>
 	</linkedResources>
 </projectDescription>
