@@ -1,9 +1,4 @@
-#{extends 'main.html' /}
-<html> 
-<meta charset="utf-8"> 
-
-</html>
-
+#{extends 'Secure/layout.html' /}
 
 <div id="login">
 	
@@ -23,22 +18,19 @@
 		#{/if}
 	
 		<p id="username-field">
-			<label for="username">Email Usuario </label>
-			<input type="text" name="username" id="username" value="${flash.username}" />
+			<label for="username">&{'secure.username'}</label>
+			<input type="text" name="username" id="username"  value="${flash.username}" />
 		</p>
 		<p id="password-field">
-			<label for="password">Contraseña</label>
+			<label for="password">&{'secure.password'}</label>
 			<input type="password" name="password" id="password" value="" />
 		</p>
 		<p id="remember-field">
 			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
-			<label for="remember">Recordar</label>
+			<label for="remember">&{'secure.remember'}</label>
 		</p>
 		<p id="signin-field">
-			<input type="submit" id="signin" value=Ingresar />
-		</p>
-		<p> 
-		<a href="/Security/registro"class="btn btn-success">Registrar</a>
+			<input type="submit" id="signin" value="&{'secure.signin'}" />
 		</p>
 	#{/form}
 </div>
